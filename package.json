@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "@playlyfe/gql": "^2.5.0",
     "apollo-client": "^2.2.0",
     "apollo-client-preset": "^1.0.6",
     "babel-runtime": "^6.26.0",
@@ -20,6 +21,7 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "babel-plugin-inline-import": "^2.0.6",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
