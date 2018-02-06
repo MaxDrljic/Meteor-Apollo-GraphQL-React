@@ -9,7 +9,7 @@ import ResolutionsResolvers from "../../api/resolutions/resolvers";
 import UsersSchema from "../../api/users/User.graphql";
 import UsersResolvers from "../../api/users/resolvers";
 
-// Start Code here
+// Start Code
 
 const typeDefs = [GoalsSchema, ResolutionsSchema, UsersSchema];
 
