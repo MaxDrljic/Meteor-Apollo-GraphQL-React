@@ -17,29 +17,24 @@ export default {
       }).fetch(),
     completed: resolution => {
       const goals = Goals.find({
-        resolutionId: resolution._id,
-        completed: false
+        resolutionId: resolution._id
       }).fetch();
-      return !goals.length;
+      if (goals.length === 0) return false;
+      const completedGoals = goals.filter(goal => goal.completed);
+      return goals.length === completedGoals.length;
     }
   },
 
   Mutation: {
     createResolution(obj, { name }, { userId }) {
-      const resolutionId = Resolutions.insert({
-        name,
-        userId
-      });
-      return Goals.findOne(goalId);
-    },
-    toggleGoal(obj, { _id }) {
-      const goal = Goals.findOne(_id);
-      Goals.update(_id, {
-        $set: {
-          completed: !goal.completed
-        }
-      });
-      return Goals.findOne(_id);
+      if (userId) {
+        const resolutionId = Resolutions.insert({
+          name,
+          userId
+        });
+        return Resolutions.findOne(resolutionId);
+      }
+      throw new Error("Unauthorized");
     }
   }
 };
